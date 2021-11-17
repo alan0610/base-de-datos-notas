@@ -1,0 +1,78 @@
+CREATE TABLE usuarios(
+id INT AUTO_INCREMENT,
+nombre VARCHAR(255),
+email VARCHAR(255),
+PRIMARY KEY(id)
+)
+
+CREATE TABLE notas(
+id INT AUTO_INCREMENT,
+titulo VARCHAR(255),
+fecha_de_creacion DATE,
+ultima_modificacion DATE,
+descripcion TEXT,
+eliminacion TINYINT,
+user_id INT,
+PRIMARY KEY(id)
+)
+
+CREATE TABLE categorias(
+id INT AUTO_INCREMENT,
+nombre VARCHAR(100),
+primary key(id)
+)
+
+CREATE TABLE categorias_notas(
+id INT AUTO_INCREMENT,
+id_categoria INT,
+id_nota INT,
+PRIMARY KEY(id)
+)
+
+ALTER TABLE categorias_notas add constraint foreign key (id_nota) references notas(id)
+ALTER TABLE categorias_notas add constraint foreign key (id_categoria) references categorias(id)
+ALTER TABLE notas add constraint foreign key (user_id) references usuarios(id)
+
+INSERT INTO usuarios (id, nombre, email) VALUES (null, 'Jorge', 'jorge@gmail.com')
+INSERT INTO usuarios (id, nombre, email) VALUES (null, 'Juan', 'juan@gmail.com')
+INSERT INTO usuarios (id, nombre, email) VALUES (null, 'Alan', 'alan@gmail.com')
+INSERT INTO usuarios (id, nombre, email) VALUES (null, 'Diego', 'diego@gmail.com')
+INSERT INTO usuarios (id, nombre, email) VALUES (null, 'Jorge', 'jorge@gmail.com')
+INSERT INTO usuarios (id, nombre, email) VALUES (null, 'Karina', 'karina@gmail.com')
+INSERT INTO usuarios (id, nombre, email) VALUES (null, 'Lucas', 'lucas@gmail.com')
+INSERT INTO usuarios (id, nombre, email) VALUES (null, 'Agustin', 'agus@gmail.com')
+INSERT INTO usuarios (id, nombre, email) VALUES (null, 'Pablo', 'pablo@gmail.com')
+INSERT INTO usuarios (id, nombre, email) VALUES (null, 'Celia', 'celia@gmail.com')
+
+INSERT INTO notas (id, titulo, fecha_de_creacion, ultima_modificacion, descripcion, eliminacion, user_id) VALUES (null, 'titulo1', '2008-02-27', '2011-06-14', 'descripcion1', '0', '1')
+INSERT INTO notas (id, titulo, fecha_de_creacion, ultima_modificacion, descripcion, eliminacion, user_id) VALUES (null, 'titulo2', '2008-02-27', '2011-06-14', 'descripcion2', '0', '2')
+INSERT INTO notas (id, titulo, fecha_de_creacion, ultima_modificacion, descripcion, eliminacion, user_id) VALUES (null, 'titulo3', '2008-02-27', '2011-06-14', 'descripcion3', '0', '3')
+INSERT INTO notas (id, titulo, fecha_de_creacion, ultima_modificacion, descripcion, eliminacion, user_id) VALUES (null, 'titulo4', '2008-02-27', '2011-06-14', 'descripcion4', '0', '4')
+INSERT INTO notas (id, titulo, fecha_de_creacion, ultima_modificacion, descripcion, eliminacion, user_id) VALUES (null, 'titulo5', '2008-02-27', '2011-06-14', 'descripcion5', '0', '5')
+INSERT INTO notas (id, titulo, fecha_de_creacion, ultima_modificacion, descripcion, eliminacion, user_id) VALUES (null, 'titulo6', '2008-02-27', '2011-06-14', 'descripcion6', '0', '6')
+INSERT INTO notas (id, titulo, fecha_de_creacion, ultima_modificacion, descripcion, eliminacion, user_id) VALUES (null, 'titulo7', '2008-02-27', '2011-06-14', 'descripcion7', '0', '7')
+INSERT INTO notas (id, titulo, fecha_de_creacion, ultima_modificacion, descripcion, eliminacion, user_id) VALUES (null, 'titulo8', '2008-02-27', '2011-06-14', 'descripcion8', '0', '8')
+INSERT INTO notas (id, titulo, fecha_de_creacion, ultima_modificacion, descripcion, eliminacion, user_id) VALUES (null, 'titulo9', '2008-02-27', '2011-06-14', 'descripcion9', '0', '9')
+INSERT INTO notas (id, titulo, fecha_de_creacion, ultima_modificacion, descripcion, eliminacion, user_id) VALUES (null, 'titulo10', '2008-02-27', '2011-06-14', 'descripcion10', '0', '10')
+
+INSERT INTO categorias (id, nombre) VALUES (null, 'categoria1')
+INSERT INTO categorias (id, nombre) VALUES (null, 'categoria2')
+INSERT INTO categorias (id, nombre) VALUES (null, 'categoria3')
+INSERT INTO categorias (id, nombre) VALUES (null, 'categoria4')
+INSERT INTO categorias (id, nombre) VALUES (null, 'categoria5')
+INSERT INTO categorias (id, nombre) VALUES (null, 'categoria6')
+INSERT INTO categorias (id, nombre) VALUES (null, 'categoria7')
+INSERT INTO categorias (id, nombre) VALUES (null, 'categoria8')
+INSERT INTO categorias (id, nombre) VALUES (null, 'categoria9')
+INSERT INTO categorias (id, nombre) VALUES (null, 'categoria10')
+
+INSERT INTO categorias_notas (id, id_nota, id_categoria) VALUES (null, '1', '5')
+INSERT INTO categorias_notas (id, id_nota, id_categoria) VALUES (null, '2', '7')
+INSERT INTO categorias_notas (id, id_nota, id_categoria) VALUES (null, '3', '3')
+INSERT INTO categorias_notas (id, id_nota, id_categoria) VALUES (null, '4', '5')
+INSERT INTO categorias_notas (id, id_nota, id_categoria) VALUES (null, '5', '8')
+INSERT INTO categorias_notas (id, id_nota, id_categoria) VALUES (null, '6', '1')
+INSERT INTO categorias_notas (id, id_nota, id_categoria) VALUES (null, '7', '2')
+INSERT INTO categorias_notas (id, id_nota, id_categoria) VALUES (null, '8', '9')
+INSERT INTO categorias_notas (id, id_nota, id_categoria) VALUES (null, '9', '10')
+INSERT INTO categorias_notas (id, id_nota, id_categoria) VALUES (null, '10', '9')
